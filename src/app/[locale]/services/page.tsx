@@ -1,8 +1,12 @@
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { ServicesOverview } from '@/components/sections/home/ServicesOverview';
 import { FinalCTA } from '@/components/sections/home/FinalCTA';
+import { getServices } from '@/lib/api';
 
-export default function ServicesPage() {
+export default async function ServicesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const services = await getServices(locale);
+
   return (
     <>
       <section className="pt-32 pb-20">
@@ -14,7 +18,7 @@ export default function ServicesPage() {
           />
         </div>
       </section>
-      <ServicesOverview />
+      <ServicesOverview services={services} />
       <FinalCTA />
     </>
   );

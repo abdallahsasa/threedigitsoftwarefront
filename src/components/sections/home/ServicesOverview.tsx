@@ -2,42 +2,26 @@
 
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { motion } from 'framer-motion';
-import { Monitor, Smartphone, TrendingUp, Paintbrush, Briefcase, ArrowRight } from 'lucide-react';
+import { Monitor, Smartphone, Briefcase, Cpu, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-export function ServicesOverview() {
-  const serviceGroups = [
-    {
-      title: 'Digital Experiences',
-      icon: <Monitor className="w-6 h-6 text-primary-accent" />,
-      items: ['Corporate Websites', 'Landing Pages', 'E-commerce', 'UI/UX Design', 'Customer Portals'],
-      desc: 'High-converting digital experiences that turn visitors into loyal customers.',
-    },
-    {
-      title: 'Software & AI',
-      icon: <Smartphone className="w-6 h-6 text-primary-accent" />,
-      items: ['Business Platforms', 'Mobile Apps', 'AI Solutions', 'Automation', 'CRM & ERP'],
-      desc: 'Scalable applications and intelligent systems to streamline operations.',
-    },
-    {
-      title: 'Digital Marketing',
-      icon: <TrendingUp className="w-6 h-6 text-primary-accent" />,
-      items: ['SEO Optimization', 'Google Ads', 'Meta & TikTok Ads', 'Analytics', 'Conversion Optimization'],
-      desc: 'Data-driven marketing strategies that drive qualified traffic and generate revenue.',
-    },
-    {
-      title: 'Branding & Creative',
-      icon: <Paintbrush className="w-6 h-6 text-primary-accent" />,
-      items: ['Brand Identity', 'Graphic Design', 'Motion Graphics', 'Product Photography', 'Video Production', 'Social Content'],
-      desc: 'Compelling visual narratives that elevate your brand perception and trust.',
-    },
-    {
-      title: 'Business Growth',
-      icon: <Briefcase className="w-6 h-6 text-primary-accent" />,
-      items: ['Digital Strategy', 'Business Consulting', 'Product Strategy', 'Digital Transformation'],
-      desc: 'Strategic roadmaps to modernize your business and outpace the competition.',
+interface ServiceData {
+  id: number;
+  name: string;
+  slug: string;
+  overview: string;
+}
+
+export function ServicesOverview({ services = [] }: { services?: ServiceData[] }) {
+  const getIcon = (slug: string) => {
+    switch (slug) {
+      case 'web': return <Monitor className="w-6 h-6 text-primary-accent" />;
+      case 'mobile': return <Smartphone className="w-6 h-6 text-primary-accent" />;
+      case 'platforms': return <Briefcase className="w-6 h-6 text-primary-accent" />;
+      case 'ai': return <Cpu className="w-6 h-6 text-primary-accent" />;
+      default: return <Monitor className="w-6 h-6 text-primary-accent" />;
     }
-  ];
+  };
 
   return (
     <section className="py-32 bg-secondary-bg relative">
@@ -72,33 +56,30 @@ export function ServicesOverview() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {serviceGroups.map((group, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-              className="group bg-primary-bg rounded-2xl p-8 border border-white/5 hover:border-primary-accent/30 transition-all duration-300 relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-8 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(100,210,30,0.2)] transition-all duration-300">
-                {group.icon}
-              </div>
-              
-              <h3 className="text-2xl font-bold text-white mb-4">{group.title}</h3>
-              <p className="text-muted-text mb-8">{group.desc}</p>
-              
-              <ul className="space-y-3">
-                {group.items.map((item, j) => (
-                  <li key={j} className="flex items-start gap-3 text-sm text-white/80">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-accent/60"></span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+          {services.map((service, i) => (
+            <Link href={`/services/${service.slug}`} key={i} className="block group bg-primary-bg rounded-2xl p-8 border border-white/5 hover:border-primary-accent/30 transition-all duration-300 relative overflow-hidden h-full">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                className="h-full flex flex-col"
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-8 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(100,210,30,0.2)] transition-all duration-300">
+                  {getIcon(service.slug)}
+                </div>
+                
+                <h3 className="text-2xl font-bold text-white mb-4">{service.name}</h3>
+                <p className="text-muted-text mb-8">{service.overview}</p>
+                
+                <div className="mt-auto flex items-center gap-2 text-white font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                  <span className="text-sm tracking-wider uppercase">Explore Service</span>
+                  <ArrowRight className="w-4 h-4 text-primary-accent" />
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>

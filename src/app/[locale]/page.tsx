@@ -10,11 +10,12 @@ import { Technologies } from '@/components/sections/home/Technologies';
 import { Industries } from '@/components/sections/home/Industries';
 import { FinalCTA } from '@/components/sections/home/FinalCTA';
 
-import { getProjects } from '@/lib/api';
+import { getProjects, getServices } from '@/lib/api';
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const featuredProjects = await getProjects(locale, true);
+  const services = await getServices(locale);
 
   return (
     <>
@@ -22,7 +23,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <ClientLogos />
       <TrustIndicators />
       <AllInOnePartner />
-      <ServicesOverview />
+      <ServicesOverview services={services} />
       <WhyUs />
       <Process />
       <SelectedWork projects={featuredProjects} />
