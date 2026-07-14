@@ -24,7 +24,12 @@ function TiltCard({ children, className }: { children: React.ReactNode, classNam
   const rotateY = useTransform(mouseXSpring, [-1, 1], [-3, 3]);
 
   useEffect(() => {
-    setIsMobile(window.matchMedia('(max-width: 768px)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia('(max-width: 768px)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -101,9 +106,11 @@ export function SelectedWork({ projects = [] }: { projects?: ProjectData[] }) {
             subtitle="We build reliable digital products for businesses across Europe, the Middle East, and global markets."
             className="mb-0 max-w-2xl"
           />
-          <Button href="/work" variant="ghost" className="hidden md:inline-flex mt-4 md:mt-0 items-center gap-2 group">
-            View All Projects 
-            <span className="text-xl transform transition-transform duration-300 group-hover:translate-x-2">&rarr;</span>
+          <Button asChild variant="ghost" className="hidden md:inline-flex mt-4 md:mt-0 items-center gap-2 group">
+            <Link href="/work">
+              View All Projects 
+              <span className="text-xl transform transition-transform duration-300 group-hover:translate-x-2">&rarr;</span>
+            </Link>
           </Button>
         </div>
         
@@ -165,7 +172,9 @@ export function SelectedWork({ projects = [] }: { projects?: ProjectData[] }) {
         </div>
         
         <div className="mt-16 text-center md:hidden">
-          <Button href="/work" variant="outline" size="lg" className="w-full">View All Projects</Button>
+          <Button asChild variant="outline" size="lg" className="w-full">
+            <Link href="/work">View All Projects</Link>
+          </Button>
         </div>
       </div>
     </section>

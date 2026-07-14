@@ -96,3 +96,49 @@ export async function getService(slug: string, locale: string = 'en') {
     return null;
   }
 }
+
+export async function getIndustries(locale: string = 'en') {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'}/api/v1/industries`, {
+      headers: {
+        'Accept-Language': locale,
+        'Accept': 'application/json',
+      },
+      next: { revalidate: 60 },
+    });
+
+    if (!res.ok) {
+      console.error('Failed to fetch industries');
+      return [];
+    }
+
+    const json = await res.json();
+    return json.data || [];
+  } catch (error) {
+    console.error('Error fetching industries:', error);
+    return [];
+  }
+}
+
+export async function getPosts(locale: string = 'en') {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'}/api/v1/posts`, {
+      headers: {
+        'Accept-Language': locale,
+        'Accept': 'application/json',
+      },
+      next: { revalidate: 60 },
+    });
+
+    if (!res.ok) {
+      console.error('Failed to fetch posts');
+      return [];
+    }
+
+    const json = await res.json();
+    return json.data || [];
+  } catch (error) {
+    console.error('Error fetching posts:', error);
+    return [];
+  }
+}

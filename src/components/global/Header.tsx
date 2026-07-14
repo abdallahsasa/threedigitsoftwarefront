@@ -10,7 +10,6 @@ import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 export function Header() {
-  const t = useTranslations();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -66,8 +65,8 @@ export function Header() {
           
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-6">
-            <Button href="/start-a-project" size="md">
-              Start a Project
+            <Button asChild size="md">
+              <Link href="/start-a-project">Start a Project</Link>
             </Button>
           </div>
 
@@ -120,8 +119,8 @@ export function Header() {
               transition={{ delay: 0.3, duration: 0.4 }}
               className="mt-auto"
             >
-              <Button href="/start-a-project" size="lg" className="w-full text-center block" onClick={() => setMobileMenuOpen(false)}>
-                Start a Project
+              <Button asChild size="lg" className="w-full text-center block" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/start-a-project">Start a Project</Link>
               </Button>
             </motion.div>
           </motion.div>

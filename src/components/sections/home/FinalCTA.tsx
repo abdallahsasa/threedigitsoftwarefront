@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/Button';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export function FinalCTA() {
   return (
@@ -24,7 +25,7 @@ export function FinalCTA() {
           className="max-w-4xl mx-auto text-center p-8 md:p-16 rounded-3xl border border-white/10 bg-secondary-bg/40 backdrop-blur-2xl shadow-[0_0_100px_rgba(100,210,30,0.05)]"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-            Let's Build Your Next <span className="text-primary-accent">Success Story.</span>
+            Let&apos;s Build Your Next <span className="text-primary-accent">Success Story.</span>
           </h2>
           
           <p className="text-xl md:text-2xl text-muted-text mb-12 max-w-2xl mx-auto leading-relaxed">
@@ -32,14 +33,14 @@ export function FinalCTA() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href="/start-a-project" size="lg" className="w-full sm:w-auto text-lg px-8 py-4 shadow-[0_0_20px_rgba(100,210,30,0.3)] hover:shadow-[0_0_30px_rgba(100,210,30,0.5)] transition-all">
-              Start Your Project
+            <Button asChild size="lg" className="w-full sm:w-auto text-lg px-8 py-4 shadow-[0_0_20px_rgba(100,210,30,0.3)] hover:shadow-[0_0_30px_rgba(100,210,30,0.5)] transition-all">
+              <Link href="/start-a-project">Start Your Project</Link>
             </Button>
-            <Button href="/contact" variant="outline" size="lg" className="w-full sm:w-auto text-lg px-8 py-4 bg-white/5 backdrop-blur-md">
-              Book a Free Discovery Call
+            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto text-lg px-8 py-4 bg-white/5 backdrop-blur-md">
+              <Link href="/contact">Book a Free Discovery Call</Link>
             </Button>
-            <Button href="https://wa.me/123456789" variant="outline" size="lg" className="w-full sm:w-auto text-lg px-8 py-4 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 hover:text-emerald-300">
-              WhatsApp
+            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto text-lg px-8 py-4 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 hover:text-emerald-300">
+              <a href="https://wa.me/123456789" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </Button>
           </div>
         </motion.div>

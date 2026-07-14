@@ -33,7 +33,8 @@ export function ProjectInquiryForm() {
       } else {
         setStatus('error');
       }
-    } catch (err) {
+    } catch (error) {
+      console.error(error);
       setStatus('error');
     }
   };

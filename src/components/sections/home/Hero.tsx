@@ -2,12 +2,12 @@
 
 import { Button } from '@/components/ui/Button';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import Link from 'next/link';
 import { useEffect, useState, useRef } from 'react';
-import { Sparkles, BarChart3, Target, Smartphone, Globe } from 'lucide-react';
+import { Sparkles, BarChart3, Target } from 'lucide-react';
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
 
   // Scroll parallax for the main container
@@ -32,7 +32,12 @@ export function Hero() {
   const layer3Y = useTransform(mouseY, v => v * -0.8);
 
   useEffect(() => {
-    setIsMobile(window.matchMedia('(max-width: 768px)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia('(max-width: 768px)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -53,9 +58,8 @@ export function Hero() {
       ref={containerRef}
       className="relative pt-36 pb-20 md:pt-48 md:pb-32 overflow-hidden"
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovering(true)}
+      onMouseEnter={() => {}}
       onMouseLeave={() => {
-        setIsHovering(false);
         mouseX.set(0);
         mouseY.set(0);
       }}
@@ -86,11 +90,11 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
         >
-          <Button href="/start-a-project" size="lg" className="w-full sm:w-auto text-lg px-8 py-4">
-            Start Your Project
+          <Button asChild size="lg" className="w-full sm:w-auto text-lg px-8 py-4">
+            <Link href="/start-a-project">Start Your Project</Link>
           </Button>
-          <Button href="/work" variant="outline" size="lg" className="w-full sm:w-auto text-lg px-8 py-4">
-            Explore Our Work
+          <Button asChild variant="outline" size="lg" className="w-full sm:w-auto text-lg px-8 py-4">
+            <Link href="/work">Explore Our Work</Link>
           </Button>
         </motion.div>
       </motion.div>

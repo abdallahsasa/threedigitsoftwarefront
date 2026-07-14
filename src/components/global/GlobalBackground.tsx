@@ -36,15 +36,20 @@ export function GlobalBackground() {
     };
   }, [isMobile, mouseX, mouseY]);
 
-  // Generate 20 stable random particles so they don't rerender
-  const particles = Array.from({ length: 20 }).map((_, i) => ({
-    id: i,
-    size: Math.random() * 3 + 1,
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    duration: Math.random() * 20 + 20,
-    delay: Math.random() * -20,
-  }));
+  const [particles, setParticles] = useState<Array<{id: number, size: number, left: string, top: string, duration: number, delay: number}>>([]);
+
+  useEffect(() => {
+    setParticles(
+      Array.from({ length: 20 }).map((_, i) => ({
+        id: i,
+        size: Math.random() * 3 + 1,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        duration: Math.random() * 20 + 20,
+        delay: Math.random() * -20,
+      }))
+    );
+  }, []);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden bg-primary-bg">

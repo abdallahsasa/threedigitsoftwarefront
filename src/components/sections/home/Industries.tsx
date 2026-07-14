@@ -10,24 +10,33 @@ import {
   Factory, Handshake, Cpu 
 } from 'lucide-react';
 
-export function Industries() {
-  const industries = [
-    { name: 'Healthcare', slug: 'healthcare', icon: <HeartPulse className="w-8 h-8 stroke-[1.5]" /> },
-    { name: 'Medical Engineering', slug: 'medical-engineering', icon: <Microscope className="w-8 h-8 stroke-[1.5]" /> },
-    { name: 'Real Estate', slug: 'real-estate', icon: <Building className="w-8 h-8 stroke-[1.5]" /> },
-    { name: 'Tourism', slug: 'tourism', icon: <Map className="w-8 h-8 stroke-[1.5]" /> },
-    { name: 'Restaurants', slug: 'restaurants', icon: <Utensils className="w-8 h-8 stroke-[1.5]" /> },
-    { name: 'Retail', slug: 'retail', icon: <ShoppingBag className="w-8 h-8 stroke-[1.5]" /> },
-    { name: 'Automotive', slug: 'automotive', icon: <Car className="w-8 h-8 stroke-[1.5]" /> },
-    { name: 'Construction', slug: 'construction', icon: <HardHat className="w-8 h-8 stroke-[1.5]" /> },
-    { name: 'Professional Services', slug: 'professional-services', icon: <Briefcase className="w-8 h-8 stroke-[1.5]" /> },
-    { name: 'Education', slug: 'education', icon: <GraduationCap className="w-8 h-8 stroke-[1.5]" /> },
-    { name: 'Government', slug: 'government', icon: <Landmark className="w-8 h-8 stroke-[1.5]" /> },
-    { name: 'Hospitality', slug: 'hospitality', icon: <Bed className="w-8 h-8 stroke-[1.5]" /> },
-    { name: 'Manufacturing', slug: 'manufacturing', icon: <Factory className="w-8 h-8 stroke-[1.5]" /> },
-    { name: 'B2B', slug: 'b2b', icon: <Handshake className="w-8 h-8 stroke-[1.5]" /> },
-    { name: 'Technology', slug: 'technology', icon: <Cpu className="w-8 h-8 stroke-[1.5]" /> }
-  ];
+interface IndustryData {
+  id: number;
+  name: string;
+  slug: string;
+}
+
+export function Industries({ industries = [] }: { industries?: IndustryData[] }) {
+  const getIcon = (slug: string) => {
+    switch (slug) {
+      case 'healthcare': return <HeartPulse className="w-8 h-8 stroke-[1.5]" />;
+      case 'medical-engineering': return <Microscope className="w-8 h-8 stroke-[1.5]" />;
+      case 'real-estate': return <Building className="w-8 h-8 stroke-[1.5]" />;
+      case 'tourism': return <Map className="w-8 h-8 stroke-[1.5]" />;
+      case 'restaurants': return <Utensils className="w-8 h-8 stroke-[1.5]" />;
+      case 'retail': return <ShoppingBag className="w-8 h-8 stroke-[1.5]" />;
+      case 'automotive': return <Car className="w-8 h-8 stroke-[1.5]" />;
+      case 'construction': return <HardHat className="w-8 h-8 stroke-[1.5]" />;
+      case 'professional-services': return <Briefcase className="w-8 h-8 stroke-[1.5]" />;
+      case 'education': return <GraduationCap className="w-8 h-8 stroke-[1.5]" />;
+      case 'government': return <Landmark className="w-8 h-8 stroke-[1.5]" />;
+      case 'hospitality': return <Bed className="w-8 h-8 stroke-[1.5]" />;
+      case 'manufacturing': return <Factory className="w-8 h-8 stroke-[1.5]" />;
+      case 'b2b': return <Handshake className="w-8 h-8 stroke-[1.5]" />;
+      case 'technology': return <Cpu className="w-8 h-8 stroke-[1.5]" />;
+      default: return <Briefcase className="w-8 h-8 stroke-[1.5]" />;
+    }
+  };
 
   return (
     <section className="py-32 bg-primary-bg relative overflow-hidden">
@@ -64,7 +73,7 @@ export function Industries() {
                 <div className="relative h-full flex flex-col justify-between">
                   {/* Icon */}
                   <div className="text-white/40 group-hover:text-primary-accent transition-colors duration-500 group-hover:scale-110 transform origin-left">
-                    {industry.icon}
+                    {getIcon(industry.slug)}
                   </div>
 
                   <div className="flex justify-between items-end">

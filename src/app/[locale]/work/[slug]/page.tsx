@@ -6,7 +6,20 @@ import { notFound } from 'next/navigation';
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const { slug, locale } = await params;
-  const project = await getProject(slug, locale);
+  const projectData: any = await getProject(slug, locale);
+
+  const project: {
+    category?: string;
+    name: string;
+    overview?: string;
+    client_name?: string;
+    launch_year?: string;
+    main_image?: string;
+    business_challenge?: string;
+    proposed_solution?: string;
+    results?: string;
+    live_url?: string | null;
+  } | null = projectData;
 
   if (!project) {
     notFound();
@@ -69,8 +82,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             
             <div className="space-y-8">
               {project.live_url && (
-                <Button href={project.live_url} className="w-full text-center block" target="_blank" rel="noopener noreferrer">
-                  Visit Live Website
+                <Button asChild className="w-full text-center block">
+                  <a href={project.live_url} target="_blank" rel="noopener noreferrer">
+                    Visit Live Website
+                  </a>
                 </Button>
               )}
             </div>

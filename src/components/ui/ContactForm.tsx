@@ -28,7 +28,8 @@ export function ContactForm() {
       } else {
         setStatus('error');
       }
-    } catch (err) {
+    } catch (error) {
+      console.error(error);
       setStatus('error');
     }
   };
