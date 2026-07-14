@@ -1,0 +1,89 @@
+"use client";
+
+import { SectionHeading } from '@/components/ui/SectionHeading';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+import { 
+  Lightbulb, Palette, Layout, Search, 
+  Share2, Target, Cpu, TrendingUp 
+} from 'lucide-react';
+
+export function Process() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+  const steps = [
+    { title: 'Business Strategy', desc: 'Defining your goals, target audience, and digital roadmap.', icon: <Lightbulb /> },
+    { title: 'Brand Identity', desc: 'Crafting a premium visual narrative that builds trust.', icon: <Palette /> },
+    { title: 'Website or Platform', desc: 'Engineering scalable, high-performance digital products.', icon: <Layout /> },
+    { title: 'SEO', desc: 'Optimizing architecture for search engine dominance.', icon: <Search /> },
+    { title: 'Social Media', desc: 'Engaging your audience with compelling creative content.', icon: <Share2 /> },
+    { title: 'Advertising', desc: 'Driving measurable ROI through targeted paid campaigns.', icon: <Target /> },
+    { title: 'AI Automation', desc: 'Streamlining operations to reduce costs and increase scale.', icon: <Cpu /> },
+    { title: 'Business Growth', desc: 'Analyzing data to continuously optimize and expand your market.', icon: <TrendingUp /> },
+  ];
+
+  return (
+    <section className="py-32 bg-secondary-bg" ref={containerRef}>
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-20"
+        >
+          <SectionHeading 
+            title="From Idea to Business Growth" 
+            subtitle="We don't just launch your platform and leave. We guide you through the entire digital lifecycle to ensure sustained revenue growth."
+            align="center" 
+          />
+        </motion.div>
+
+        <div className="relative max-w-4xl mx-auto">
+          {/* Animated Timeline Line */}
+          <div className="absolute left-12 md:left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2"></div>
+          <motion.div 
+            style={{ height: lineHeight }}
+            className="absolute left-12 md:left-1/2 top-0 w-1 bg-gradient-to-b from-primary-accent via-primary-accent to-blue-500 -translate-x-1/2 origin-top rounded-full shadow-[0_0_15px_rgba(100,210,30,0.5)]"
+          ></motion.div>
+
+          <div className="space-y-16">
+            {steps.map((step, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className={`relative flex flex-col md:flex-row items-center gap-8 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+              >
+                {/* Node */}
+                <div className="absolute left-12 md:left-1/2 w-14 h-14 bg-secondary-bg border-4 border-primary-bg rounded-full -translate-x-1/2 flex items-center justify-center z-10 transition-colors duration-500 hover:border-primary-accent">
+                  <div className="w-5 h-5 text-white/70">
+                    {step.icon}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className={`w-full md:w-1/2 pl-32 md:pl-0 ${i % 2 === 0 ? 'md:pr-16 text-left md:text-right' : 'md:pl-16 text-left'}`}>
+                  <div className="bg-primary-bg rounded-2xl p-6 border border-white/5 hover:border-primary-accent/30 transition-all duration-300 shadow-sm hover:shadow-[0_10px_40px_rgba(100,210,30,0.1)] group">
+                    <div className="text-sm font-mono text-primary-accent mb-2 tracking-widest uppercase opacity-80 group-hover:opacity-100 transition-opacity">Step 0{i + 1}</div>
+                    <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
+                    <p className="text-muted-text text-sm md:text-base">{step.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

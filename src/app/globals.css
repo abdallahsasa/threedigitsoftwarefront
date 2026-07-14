@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-bg: #07111F;
+  --color-secondary-bg: #0D1B2E;
+  --color-card-bg: #111F33;
+  --color-primary-accent: #64D21E;
+  --color-light-blue: #46A6FF;
+  --color-white: #F7FAFC;
+  --color-muted-text: #99A8BA;
+  --color-border-color: rgba(255,255,255,0.08);
+  --color-success: #29C98B;
+}
+
+:root {
+  --background: var(--color-primary-bg);
+  --foreground: var(--color-white);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  @apply antialiased;
+}
+
+
+/* Premium UI Overrides */
+.text-muted-text {
+  font-size: 1.05rem;
+}
+@media (min-width: 768px) {
+  .text-muted-text {
+    font-size: 1.1rem;
+  }
+}
+
+/* Ambient Background Animations */
+@keyframes grid-flow {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(40px); }
+}
+
+@keyframes aurora-1 {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5%, 5%) scale(1.05); }
+  66% { transform: translate(-5%, 2%) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes aurora-2 {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-5%, -5%) scale(0.95); }
+  66% { transform: translate(5%, -2%) scale(1.05); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.05; }
+  90% { opacity: 0.05; }
+  100% { transform: translateY(-1000px) rotate(360deg); opacity: 0; }
+}
+
+.animate-grid-flow {
+  animation: grid-flow 8s linear infinite;
+}
+
+.animate-aurora-1 {
+  animation: aurora-1 35s ease-in-out infinite;
+}
+
+.animate-aurora-2 {
+  animation: aurora-2 40s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float linear infinite;
+}
+
+@keyframes hero-glow {
+  0% { box-shadow: 0 0 80px rgba(100, 210, 30, 0.10); }
+  50% { box-shadow: 0 0 120px rgba(100, 210, 30, 0.25); }
+  100% { box-shadow: 0 0 80px rgba(100, 210, 30, 0.10); }
+}
+
+.animate-hero-glow {
+  animation: hero-glow 12s ease-in-out infinite;
+}
+
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(50%); }
+}
+
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-scan {
+  animation: scan 4s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
