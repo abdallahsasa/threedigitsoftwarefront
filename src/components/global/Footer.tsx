@@ -84,11 +84,11 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Three Digit Software. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <span className="text-muted-text">Berlin</span>
+            <span className="text-muted-text">Syria</span>
             <span className="text-muted-text">&middot;</span>
-            <span className="text-muted-text">Istanbul</span>
+            <span className="text-muted-text">Dubai</span>
             <span className="text-muted-text">&middot;</span>
-            <span className="text-muted-text">Riyadh</span>
+            <span className="text-muted-text">Turkey</span>
           </div>
         </div>
       </div>
