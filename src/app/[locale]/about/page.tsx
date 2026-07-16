@@ -69,6 +69,29 @@ export default async function AboutPage() {
                 </div>
               </div>
             </div>
+
+            {/* Hasan Fattouh */}
+            <div className="flex flex-col md:flex-row items-center gap-12 bg-secondary-bg border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary-accent/5 rounded-full blur-[100px] pointer-events-none"></div>
+              <div className="w-48 h-48 md:w-56 md:h-56 relative rounded-full overflow-hidden border-4 border-primary-accent/20 flex-shrink-0 z-10 shadow-xl">
+                <Image src="/hasan.jpg" alt={t('founder3_name')} fill sizes="(max-width: 768px) 192px, 224px" className="object-cover" />
+              </div>
+              <div className="text-center md:text-left z-10">
+                <h3 className="text-3xl font-bold text-white mb-2">{t('founder3_name')}</h3>
+                <p className="text-primary-accent font-semibold text-lg mb-6 uppercase tracking-wider">{t('founder3_role')}</p>
+                <p className="text-lg text-muted-text leading-relaxed mb-8">{t('founder3_desc')}</p>
+                <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                  <a href={`tel:${t('founder3_phone').replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-full text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(100,210,30,0.2)] hover:border-primary-accent/30">
+                    <Phone className="w-5 h-5 text-primary-accent" />
+                    <span className="font-medium">{t('founder3_phone')}</span>
+                  </a>
+                  <a href={`mailto:${t('founder3_email')}`} className="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-full text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(100,210,30,0.2)] hover:border-primary-accent/30">
+                    <Mail className="w-5 h-5 text-primary-accent" />
+                    <span className="font-medium">{t('founder3_email')}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
