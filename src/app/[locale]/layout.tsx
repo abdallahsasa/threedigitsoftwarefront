@@ -5,10 +5,11 @@ import {routing} from '@/i18n/routing';
 import {Header} from '@/components/global/Header';
 import {Footer} from '@/components/global/Footer';
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Cairo } from "next/font/google";
 import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const cairo = Cairo({ subsets: ["arabic"] });
 
 export const metadata: Metadata = {
   title: "Three Digit Software | Digital Products Built to Move Businesses Forward",
@@ -37,10 +38,11 @@ export default async function LocaleLayout({
   // side is the easiest way to get started
   const messages = await getMessages();
   const dir = locale === 'ar' ? 'rtl' : 'ltr';
+  const fontClass = locale === 'ar' ? cairo.className : inter.className;
 
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning>
-      <body suppressHydrationWarning className={`${inter.className} antialiased bg-transparent text-white min-h-screen flex flex-col relative`}>
+      <body suppressHydrationWarning className={`${fontClass} antialiased bg-transparent text-white min-h-screen flex flex-col relative`}>
         <NextIntlClientProvider messages={messages}>
           <GlobalBackground />
           <CustomCursor />
