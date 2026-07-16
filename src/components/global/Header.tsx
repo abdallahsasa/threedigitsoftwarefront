@@ -6,14 +6,24 @@ import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { motion, AnimatePresence } from 'framer-motion';
-import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { usePathname as useNextPathname } from 'next/navigation';
+import { Menu, X, Globe } from 'lucide-react';
+import { useLocale } from 'next-intl';
+import { usePathname, useRouter } from '@/i18n/routing';
 
 export function Header() {
   const t = useTranslations('Header');
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const pathname = useNextPathname();
+  const locale = useLocale();
+  const router = useRouter();
+  const i18nPathname = usePathname();
+
+  const toggleLocale = () => {
+    const nextLocale = locale === 'en' ? 'ar' : 'en';
+    router.replace(i18nPathname, { locale: nextLocale });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,6 +76,13 @@ export function Header() {
           
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-6">
+            <button 
+              onClick={toggleLocale}
+              className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+            >
+              <Globe className="w-5 h-5" />
+              <span className="font-medium uppercase">{locale === 'en' ? 'AR' : 'EN'}</span>
+            </button>
             <Button asChild size="md">
               <Link href="/start-a-project">{t('start_project')}</Link>
             </Button>
@@ -113,6 +130,17 @@ export function Header() {
                 );
               })}
             </nav>
+
+            <button 
+              onClick={() => {
+                toggleLocale();
+                setMobileMenuOpen(false);
+              }}
+              className="flex items-center justify-center gap-2 text-white/80 hover:text-white transition-colors py-4 mb-4 border border-white/10 rounded-xl"
+            >
+              <Globe className="w-6 h-6" />
+              <span className="font-medium text-lg uppercase">{locale === 'en' ? 'العربية' : 'English'}</span>
+            </button>
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}

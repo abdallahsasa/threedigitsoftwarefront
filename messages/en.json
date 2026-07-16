@@ -198,6 +198,11 @@
     "founder_name": "Abdullah Alsasa",
     "founder_role": "Founder & CEO",
     "founder_desc": "With extensive experience in building scalable software systems and leading digital transformation initiatives, Abdullah founded Three Digit Software to bridge the gap between business strategy and technical execution.",
-    "phone": "+90 544 106 0703"
+    "phone": "+90 544 106 0703",
+    "founder2_name": "Amer Badraldeen",
+    "founder2_role": "Founder",
+    "founder2_desc": "With a strong background in strategic partnerships and operational management, Amer brings a wealth of experience to ensure successful project delivery and business growth.",
+    "founder2_phone": "+963 991 829 993",
+    "founder2_email": "amer@threedigitsoftware.com"
   }
 }
