@@ -190,5 +190,14 @@
     "problems_we_solve": "Problems We Solve",
     "our_capabilities": "Our Capabilities",
     "our_process": "Our Process"
+  },
+  "AboutPage": {
+    "title": "About Three Digit Software",
+    "description": "Three Digit Software is a software development and digital growth company that helps businesses design, build, launch, and scale reliable digital products. We work across websites, mobile applications, business platforms, e-commerce systems, AI automation, and digital growth.",
+    "leadership": "Our Leadership",
+    "founder_name": "Abdullah Alsasa",
+    "founder_role": "Founder & CEO",
+    "founder_desc": "With extensive experience in building scalable software systems and leading digital transformation initiatives, Abdullah founded Three Digit Software to bridge the gap between business strategy and technical execution.",
+    "phone": "+90 544 106 0703"
   }
 }
