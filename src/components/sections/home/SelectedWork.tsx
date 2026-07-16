@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 // Reusable Tilt Card Component
 function TiltCard({ children, className }: { children: React.ReactNode, className?: string }) {
@@ -79,6 +80,7 @@ interface ProjectData {
 }
 
 export function SelectedWork({ projects = [] }: { projects?: ProjectData[] }) {
+  const t = useTranslations('SelectedWork');
   // If no projects are loaded, show a fallback or nothing.
   const displayProjects = projects.length > 0 ? projects.map((p: ProjectData, i: number) => {
     // Dynamic layout mapping based on order logic to keep the masonry-style grid
@@ -102,13 +104,13 @@ export function SelectedWork({ projects = [] }: { projects?: ProjectData[] }) {
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
           <SectionHeading 
-            title="Selected Work" 
-            subtitle="We build reliable digital products for businesses across Europe, the Middle East, and global markets."
+            title={t('title')} 
+            subtitle={t('subtitle')}
             className="mb-0 max-w-2xl"
           />
           <Button asChild variant="ghost" className="hidden md:inline-flex mt-4 md:mt-0 items-center gap-2 group">
             <Link href="/work">
-              View All Projects 
+              {t('view_all')} 
               <span className="text-xl transform transition-transform duration-300 group-hover:translate-x-2">&rarr;</span>
             </Link>
           </Button>
@@ -157,7 +159,7 @@ export function SelectedWork({ projects = [] }: { projects?: ProjectData[] }) {
                       
                       {/* View Case Study Button (Reveals on Hover) */}
                       <div className="hidden md:flex items-center gap-3 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 flex-shrink-0">
-                        <span className="text-white font-medium uppercase tracking-wider text-sm whitespace-nowrap">View Case Study</span>
+                        <span className="text-white font-medium uppercase tracking-wider text-sm whitespace-nowrap">{t('view_case_study')}</span>
                         <div className="w-12 h-12 rounded-full bg-primary-accent text-primary-bg flex items-center justify-center shadow-[0_0_20px_rgba(100,210,30,0.4)] flex-shrink-0">
                           <span className="text-2xl font-bold -rotate-45">&rarr;</span>
                         </div>
@@ -173,7 +175,7 @@ export function SelectedWork({ projects = [] }: { projects?: ProjectData[] }) {
         
         <div className="mt-16 text-center md:hidden">
           <Button asChild variant="outline" size="lg" className="w-full">
-            <Link href="/work">View All Projects</Link>
+            <Link href="/work">{t('view_all')}</Link>
           </Button>
         </div>
       </div>

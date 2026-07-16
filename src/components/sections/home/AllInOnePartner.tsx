@@ -5,20 +5,22 @@ import {
   Globe, Smartphone, Cpu, Search, TrendingUp, Target, 
   Palette, Server, Zap, Camera, Briefcase 
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function AllInOnePartner() {
+  const t = useTranslations('AllInOnePartner');
   const capabilities = [
-    { name: 'Website Development', icon: <Globe /> },
-    { name: 'Mobile Apps', icon: <Smartphone /> },
-    { name: 'AI Solutions', icon: <Cpu /> },
-    { name: 'SEO', icon: <Search /> },
-    { name: 'Digital Marketing', icon: <TrendingUp /> },
-    { name: 'Paid Advertising', icon: <Target /> },
-    { name: 'Branding', icon: <Palette /> },
-    { name: 'Business Platforms', icon: <Server /> },
-    { name: 'Automation', icon: <Zap /> },
-    { name: 'Photography & Video', icon: <Camera /> },
-    { name: 'Business Consulting', icon: <Briefcase /> },
+    { name: t('cap_website'), icon: <Globe /> },
+    { name: t('cap_mobile'), icon: <Smartphone /> },
+    { name: t('cap_ai'), icon: <Cpu /> },
+    { name: t('cap_seo'), icon: <Search /> },
+    { name: t('cap_marketing'), icon: <TrendingUp /> },
+    { name: t('cap_paid'), icon: <Target /> },
+    { name: t('cap_branding'), icon: <Palette /> },
+    { name: t('cap_platforms'), icon: <Server /> },
+    { name: t('cap_automation'), icon: <Zap /> },
+    { name: t('cap_photo'), icon: <Camera /> },
+    { name: t('cap_consulting'), icon: <Briefcase /> },
   ];
 
   return (
@@ -35,9 +37,9 @@ export function AllInOnePartner() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight"
           >
-            Everything Your Business Needs.
+            {t('title_line1')}
             <br />
-            <span className="text-primary-accent">One Trusted Partner.</span>
+            <span className="text-primary-accent">{t('title_line2')}</span>
           </motion.h2>
         </div>
 

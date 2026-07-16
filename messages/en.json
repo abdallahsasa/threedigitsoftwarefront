@@ -1,1 +1,194 @@
-{"hello": "Hello World!"}
+{
+  "hello": "Hello World!",
+  "Header": {
+    "nav_services": "Services",
+    "nav_work": "Work",
+    "nav_about": "About",
+    "nav_process": "Process",
+    "nav_insights": "Insights",
+    "start_project": "Start a Project"
+  },
+  "Footer": {
+    "description": "Three Digit Software is a premium software engineering firm building scalable websites, enterprise platforms, mobile applications, and AI solutions for industry leaders globally.",
+    "company": "Company",
+    "about_us": "About Us",
+    "our_process": "Our Process",
+    "contact": "Contact",
+    "services": "Services",
+    "web_development": "Web Development",
+    "mobile_apps": "Mobile Apps",
+    "business_platforms": "Business Platforms",
+    "ai_automation": "AI & Automation",
+    "explore": "Explore",
+    "portfolio": "Portfolio",
+    "industries": "Industries",
+    "technologies": "Technologies",
+    "insights": "Insights",
+    "legal": "Legal",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service",
+    "cookie_policy": "Cookie Policy",
+    "all_rights_reserved": "Three Digit Software. All rights reserved.",
+    "syria": "Syria",
+    "dubai": "Dubai",
+    "turkey": "Turkey"
+  },
+  "Hero": {
+    "title_line1": "Complete Digital Solutions for ",
+    "title_line2": "Growing Businesses.",
+    "description": "From websites and mobile applications to AI automation, branding, SEO, paid advertising and digital strategy, we help businesses build a stronger digital presence and achieve measurable growth.",
+    "start_project": "Start Your Project",
+    "explore_work": "Explore Our Work"
+  },
+  "ClientLogos": {
+    "trusted_by": "Trusted by Innovative Companies"
+  },
+  "TrustIndicators": {
+    "completed_products": "Completed Digital Products",
+    "years_building": "Years Building Software",
+    "industries_served": "Industries Served",
+    "clients_across": "Clients Across Multiple Markets",
+    "international": "International"
+  },
+  "AllInOnePartner": {
+    "title_line1": "Everything Your Business Needs.",
+    "title_line2": "One Trusted Partner.",
+    "cap_website": "Website Development",
+    "cap_mobile": "Mobile Apps",
+    "cap_ai": "AI Solutions",
+    "cap_seo": "SEO",
+    "cap_marketing": "Digital Marketing",
+    "cap_paid": "Paid Advertising",
+    "cap_branding": "Branding",
+    "cap_platforms": "Business Platforms",
+    "cap_automation": "Automation",
+    "cap_photo": "Photography & Video",
+    "cap_consulting": "Business Consulting"
+  },
+  "ServicesOverview": {
+    "title": "We Build, Launch, Market, and Grow Digital Businesses",
+    "subtitle": "Stop managing multiple agencies. We deliver the complete spectrum of digital solutions required to launch your ideas and scale your revenue under one roof.",
+    "explore_all": "Explore All Solutions",
+    "explore_service": "Explore Service"
+  },
+  "WhyUs": {
+    "title": "Why Industry Leaders Partner With Us",
+    "subtitle": "We partner with ambitious companies to build mission-critical digital products and execute marketing strategies that require serious execution and deliver real business impact.",
+    "p1_title": "One Partner For Everything",
+    "p1_desc": "Stop juggling multiple agencies. We handle your branding, software, and marketing seamlessly.",
+    "p2_title": "Business-Focused Strategy",
+    "p2_desc": "We don't just write code; we execute strategies designed to increase your revenue and market share.",
+    "p3_title": "Scalable Systems",
+    "p3_desc": "Infrastructure and platforms built to handle growth without needing constant rewrites.",
+    "p4_title": "Measurable Results",
+    "p4_desc": "Data-driven marketing and performance tracking so you always know your exact ROI."
+  },
+  "Process": {
+    "title": "From Idea to Business Growth",
+    "subtitle": "We don't just launch your platform and leave. We guide you through the entire digital lifecycle to ensure sustained revenue growth.",
+    "s1_title": "Business Strategy",
+    "s1_desc": "Defining your goals, target audience, and digital roadmap.",
+    "s2_title": "Brand Identity",
+    "s2_desc": "Crafting a premium visual narrative that builds trust.",
+    "s3_title": "Website or Platform",
+    "s3_desc": "Engineering scalable, high-performance digital products.",
+    "s4_title": "SEO",
+    "s4_desc": "Optimizing architecture for search engine dominance.",
+    "s5_title": "Social Media",
+    "s5_desc": "Engaging your audience with compelling creative content.",
+    "s6_title": "Advertising",
+    "s6_desc": "Driving measurable ROI through targeted paid campaigns.",
+    "s7_title": "AI Automation",
+    "s7_desc": "Streamlining operations to reduce costs and increase scale.",
+    "s8_title": "Business Growth",
+    "s8_desc": "Analyzing data to continuously optimize and expand your market.",
+    "step": "Step"
+  },
+  "SelectedWork": {
+    "title": "Selected Work",
+    "subtitle": "We build reliable digital products for businesses across Europe, the Middle East, and global markets.",
+    "view_all": "View All Projects",
+    "view_case_study": "View Case Study"
+  },
+  "Technologies": {
+    "title": "Built Using Modern Technologies",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "mobile": "Mobile",
+    "infrastructure": "Infrastructure",
+    "ai": "AI"
+  },
+  "Industries": {
+    "title": "Industries We Empower",
+    "subtitle": "We engineer specialized digital solutions tailored to the unique regulatory, scaling, and operational challenges of complex industries."
+  },
+  "FinalCTA": {
+    "title_line1": "Let's Build Your Next ",
+    "title_line2": "Success Story.",
+    "desc": "Whether you need a website, mobile app, AI solution, complete digital marketing strategy or business platform, our team is ready to help transform your ideas into measurable business growth.",
+    "start_project": "Start Your Project",
+    "discovery_call": "Book a Free Discovery Call",
+    "whatsapp": "WhatsApp"
+  },
+  "ContactForm": {
+    "message_sent_success": "Message sent successfully!",
+    "error_occurred": "An error occurred. Please try again.",
+    "full_name": "Full Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "name_placeholder": "John Doe",
+    "email_placeholder": "john@example.com",
+    "subject_placeholder": "How can we help?",
+    "message_placeholder": "Tell us about your requirements...",
+    "sending": "Sending...",
+    "send_message": "Send Message"
+  },
+  "ProjectInquiryForm": {
+    "req_received": "Request Received!",
+    "thanks_reach_out": "Thank you for reaching out. Our team will review your project details and get back to you shortly.",
+    "error_occurred": "An error occurred. Please check the fields and try again.",
+    "full_name": "Full Name *",
+    "company_name": "Company Name",
+    "email": "Email *",
+    "phone": "Phone / WhatsApp",
+    "project_type": "Project Type",
+    "opt_corp_web": "Corporate website",
+    "opt_ecom_web": "E-commerce website",
+    "opt_custom_web": "Custom web platform",
+    "opt_mobile_app": "Mobile application",
+    "opt_ai_sol": "AI solution",
+    "opt_bus_sys": "Business system",
+    "project_desc": "Project Description",
+    "budget_range": "Budget Range",
+    "opt_b_1": "Under $1,000",
+    "opt_b_2": "$1,000–$3,000",
+    "opt_b_3": "$3,000–$7,500",
+    "opt_b_4": "$7,500–$15,000",
+    "opt_b_5": "$15,000+",
+    "opt_b_not_sure": "Not sure yet",
+    "agree_privacy": "I agree to the privacy policy and consent to having my data processed for this inquiry. *",
+    "back": "Back",
+    "continue_next_step": "Continue to Next Step",
+    "submitting": "Submitting...",
+    "submit_request": "Submit Request"
+  },
+  "WorkDetails": {
+    "case_study": "Case Study",
+    "client": "Client:",
+    "industry": "Industry:",
+    "year": "Year:",
+    "project_overview": "Project Overview",
+    "the_challenge": "The Challenge",
+    "the_solution": "The Solution",
+    "the_results": "The Results",
+    "visit_live_website": "Visit Live Website"
+  },
+  "ServiceDetails": {
+    "subtitle": "Expert solutions and implementation tailored to your business.",
+    "overview": "Overview",
+    "problems_we_solve": "Problems We Solve",
+    "our_capabilities": "Our Capabilities",
+    "our_process": "Our Process"
+  }
+}

@@ -5,8 +5,10 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useState, useRef } from 'react';
 import { Sparkles, BarChart3, Target } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function Hero() {
+  const t = useTranslations('Hero');
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(true);
 
@@ -71,8 +73,8 @@ export function Hero() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tighter mb-8 leading-[1.05]"
         >
-          Complete Digital Solutions for <br className="hidden md:block" />
-          <span className="text-primary-accent inline-block mt-2">Growing Businesses.</span>
+          {t('title_line1')} <br className="hidden md:block" />
+          <span className="text-primary-accent inline-block mt-2">{t('title_line2')}</span>
         </motion.h1>
         
         <motion.p 
@@ -81,7 +83,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
           className="text-xl md:text-2xl text-muted-text max-w-3xl mx-auto mb-12 leading-relaxed"
         >
-          From websites and mobile applications to AI automation, branding, SEO, paid advertising and digital strategy, we help businesses build a stronger digital presence and achieve measurable growth.
+          {t('description')}
         </motion.p>
         
         <motion.div 
@@ -91,10 +93,10 @@ export function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
         >
           <Button asChild size="lg" className="w-full sm:w-auto text-lg px-8 py-4">
-            <Link href="/start-a-project">Start Your Project</Link>
+            <Link href="/start-a-project">{t('start_project')}</Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="w-full sm:w-auto text-lg px-8 py-4">
-            <Link href="/work">Explore Our Work</Link>
+            <Link href="/work">{t('explore_work')}</Link>
           </Button>
         </motion.div>
       </motion.div>

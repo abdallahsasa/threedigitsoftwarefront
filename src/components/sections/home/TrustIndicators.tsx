@@ -2,6 +2,7 @@
 
 import { motion, useInView, animate } from 'framer-motion';
 import { useRef, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 
 function Counter({ from, to, duration = 1.2 }: { from: number, to: number, duration?: number }) {
   const nodeRef = useRef<HTMLSpanElement>(null);
@@ -27,11 +28,12 @@ function Counter({ from, to, duration = 1.2 }: { from: number, to: number, durat
 }
 
 export function TrustIndicators() {
+  const t = useTranslations('TrustIndicators');
   const stats = [
-    { value: 18, isNumber: true, suffix: '+', label: 'Completed Digital Products' },
-    { value: 6, isNumber: true, suffix: '+', label: 'Years Building Software' },
-    { value: 10, isNumber: true, suffix: '+', label: 'Industries Served' },
-    { value: 'International', isNumber: false, suffix: '', label: 'Clients Across Multiple Markets' },
+    { value: 18, isNumber: true, suffix: '+', label: t('completed_products') },
+    { value: 6, isNumber: true, suffix: '+', label: t('years_building') },
+    { value: 10, isNumber: true, suffix: '+', label: t('industries_served') },
+    { value: t('international'), isNumber: false, suffix: '', label: t('clients_across') },
   ];
 
   return (

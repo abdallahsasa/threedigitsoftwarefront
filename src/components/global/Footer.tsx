@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export function Footer() {
+  const t = useTranslations('Footer');
   return (
     <footer className="border-t border-white/10 bg-secondary-bg pt-24 pb-12">
       <div className="container mx-auto px-4">
@@ -11,7 +13,7 @@ export function Footer() {
               <Image src="/logo.svg" alt="Three Digit Software" width={180} height={45} className="w-auto h-8 opacity-90" />
             </Link>
             <p className="text-muted-text mb-8 max-w-sm leading-relaxed">
-              Three Digit Software is a premium software engineering firm building scalable websites, enterprise platforms, mobile applications, and AI solutions for industry leaders globally.
+              {t('description')}
             </p>
             <div className="mb-8 space-y-3">
               <a href="tel:00905441060703" className="flex items-center gap-3 text-muted-text hover:text-primary-accent transition-colors">
@@ -41,54 +43,54 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-6">Company</h4>
+            <h4 className="text-white font-semibold mb-6">{t('company')}</h4>
             <ul className="space-y-4">
-              <li><Link href="/about" className="text-muted-text hover:text-primary-accent transition-colors">About Us</Link></li>
-              <li><Link href="/process" className="text-muted-text hover:text-primary-accent transition-colors">Our Process</Link></li>
-              <li><Link href="/contact" className="text-muted-text hover:text-primary-accent transition-colors">Contact</Link></li>
+              <li><Link href="/about" className="text-muted-text hover:text-primary-accent transition-colors">{t('about_us')}</Link></li>
+              <li><Link href="/process" className="text-muted-text hover:text-primary-accent transition-colors">{t('our_process')}</Link></li>
+              <li><Link href="/contact" className="text-muted-text hover:text-primary-accent transition-colors">{t('contact')}</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-6">Services</h4>
+            <h4 className="text-white font-semibold mb-6">{t('services')}</h4>
             <ul className="space-y-4">
-              <li><Link href="/services/web" className="text-muted-text hover:text-primary-accent transition-colors">Web Development</Link></li>
-              <li><Link href="/services/mobile" className="text-muted-text hover:text-primary-accent transition-colors">Mobile Apps</Link></li>
-              <li><Link href="/services/platforms" className="text-muted-text hover:text-primary-accent transition-colors">Business Platforms</Link></li>
-              <li><Link href="/services/ai" className="text-muted-text hover:text-primary-accent transition-colors">AI & Automation</Link></li>
+              <li><Link href="/services/web" className="text-muted-text hover:text-primary-accent transition-colors">{t('web_development')}</Link></li>
+              <li><Link href="/services/mobile" className="text-muted-text hover:text-primary-accent transition-colors">{t('mobile_apps')}</Link></li>
+              <li><Link href="/services/platforms" className="text-muted-text hover:text-primary-accent transition-colors">{t('business_platforms')}</Link></li>
+              <li><Link href="/services/ai" className="text-muted-text hover:text-primary-accent transition-colors">{t('ai_automation')}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-6">Explore</h4>
+            <h4 className="text-white font-semibold mb-6">{t('explore')}</h4>
             <ul className="space-y-4">
-              <li><Link href="/work" className="text-muted-text hover:text-primary-accent transition-colors">Portfolio</Link></li>
-              <li><Link href="/industries" className="text-muted-text hover:text-primary-accent transition-colors">Industries</Link></li>
-              <li><Link href="/technologies" className="text-muted-text hover:text-primary-accent transition-colors">Technologies</Link></li>
-              <li><Link href="/insights" className="text-muted-text hover:text-primary-accent transition-colors">Insights</Link></li>
+              <li><Link href="/work" className="text-muted-text hover:text-primary-accent transition-colors">{t('portfolio')}</Link></li>
+              <li><Link href="/industries" className="text-muted-text hover:text-primary-accent transition-colors">{t('industries')}</Link></li>
+              <li><Link href="/technologies" className="text-muted-text hover:text-primary-accent transition-colors">{t('technologies')}</Link></li>
+              <li><Link href="/insights" className="text-muted-text hover:text-primary-accent transition-colors">{t('insights')}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-6">Legal</h4>
+            <h4 className="text-white font-semibold mb-6">{t('legal')}</h4>
             <ul className="space-y-4">
-              <li><Link href="/privacy" className="text-muted-text hover:text-primary-accent transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="text-muted-text hover:text-primary-accent transition-colors">Terms of Service</Link></li>
-              <li><Link href="/cookies" className="text-muted-text hover:text-primary-accent transition-colors">Cookie Policy</Link></li>
+              <li><Link href="/privacy" className="text-muted-text hover:text-primary-accent transition-colors">{t('privacy_policy')}</Link></li>
+              <li><Link href="/terms" className="text-muted-text hover:text-primary-accent transition-colors">{t('terms_of_service')}</Link></li>
+              <li><Link href="/cookies" className="text-muted-text hover:text-primary-accent transition-colors">{t('cookie_policy')}</Link></li>
             </ul>
           </div>
         </div>
         
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-text text-sm">
-            &copy; {new Date().getFullYear()} Three Digit Software. All rights reserved.
+            &copy; {new Date().getFullYear()} {t('all_rights_reserved')}
           </p>
           <div className="flex gap-6 text-sm">
-            <span className="text-muted-text">Syria</span>
+            <span className="text-muted-text">{t('syria')}</span>
             <span className="text-muted-text">&middot;</span>
-            <span className="text-muted-text">Dubai</span>
+            <span className="text-muted-text">{t('dubai')}</span>
             <span className="text-muted-text">&middot;</span>
-            <span className="text-muted-text">Turkey</span>
+            <span className="text-muted-text">{t('turkey')}</span>
           </div>
         </div>
       </div>

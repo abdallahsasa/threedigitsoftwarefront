@@ -9,6 +9,7 @@ import {
   Briefcase, GraduationCap, Landmark, Bed, 
   Factory, Handshake, Cpu 
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface IndustryData {
   id: number;
@@ -17,6 +18,7 @@ interface IndustryData {
 }
 
 export function Industries({ industries = [] }: { industries?: IndustryData[] }) {
+  const t = useTranslations('Industries');
   const getIcon = (slug: string) => {
     switch (slug) {
       case 'healthcare': return <HeartPulse className="w-8 h-8 stroke-[1.5]" />;
@@ -48,8 +50,8 @@ export function Industries({ industries = [] }: { industries?: IndustryData[] })
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <SectionHeading 
-            title="Industries We Empower" 
-            subtitle="We engineer specialized digital solutions tailored to the unique regulatory, scaling, and operational challenges of complex industries."
+            title={t('title')} 
+            subtitle={t('subtitle')}
             align="center" 
           />
         </motion.div>

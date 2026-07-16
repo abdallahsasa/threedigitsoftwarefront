@@ -4,6 +4,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { motion } from 'framer-motion';
 import { Monitor, Smartphone, Briefcase, Cpu, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 interface ServiceData {
   id: number;
@@ -13,6 +14,7 @@ interface ServiceData {
 }
 
 export function ServicesOverview({ services = [] }: { services?: ServiceData[] }) {
+  const t = useTranslations('ServicesOverview');
   const getIcon = (slug: string) => {
     switch (slug) {
       case 'web': return <Monitor className="w-6 h-6 text-primary-accent" />;
@@ -35,8 +37,8 @@ export function ServicesOverview({ services = [] }: { services?: ServiceData[] }
             className="max-w-2xl"
           >
             <SectionHeading 
-              title="We Build, Launch, Market, and Grow Digital Businesses" 
-              subtitle="Stop managing multiple agencies. We deliver the complete spectrum of digital solutions required to launch your ideas and scale your revenue under one roof."
+              title={t('title')} 
+              subtitle={t('subtitle')}
             />
           </motion.div>
           <motion.div
@@ -47,7 +49,7 @@ export function ServicesOverview({ services = [] }: { services?: ServiceData[] }
             className="hidden md:block pb-8"
           >
             <Link href="/services" className="group flex items-center gap-2 text-white font-semibold hover:text-primary-accent transition-colors">
-              Explore All Solutions
+              {t('explore_all')}
               <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary-accent/20 transition-colors">
                 <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
               </div>
@@ -75,7 +77,7 @@ export function ServicesOverview({ services = [] }: { services?: ServiceData[] }
                 <p className="text-muted-text mb-8">{service.overview}</p>
                 
                 <div className="mt-auto flex items-center gap-2 text-white font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                  <span className="text-sm tracking-wider uppercase">Explore Service</span>
+                  <span className="text-sm tracking-wider uppercase">{t('explore_service')}</span>
                   <ArrowRight className="w-4 h-4 text-primary-accent" />
                 </div>
               </motion.div>

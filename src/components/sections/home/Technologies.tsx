@@ -2,11 +2,13 @@
 
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 export function Technologies() {
+  const t = useTranslations('Technologies');
   const stack = [
     {
-      category: 'Frontend',
+      category: t('frontend'),
       items: [
         { name: 'Next.js', icon: 'nextdotjs' }, 
         { name: 'React', icon: 'react' }, 
@@ -15,7 +17,7 @@ export function Technologies() {
       ]
     },
     {
-      category: 'Backend',
+      category: t('backend'),
       items: [
         { name: 'Laravel', icon: 'laravel' }, 
         { name: 'PHP', icon: 'php' }, 
@@ -24,14 +26,14 @@ export function Technologies() {
       ]
     },
     {
-      category: 'Mobile',
+      category: t('mobile'),
       items: [
         { name: 'React Native', icon: 'react' }, 
         { name: 'Expo', icon: 'expo' }
       ]
     },
     {
-      category: 'Infrastructure',
+      category: t('infrastructure'),
       items: [
         { name: 'Docker', icon: 'docker' }, 
         { name: 'Cloudflare', icon: 'cloudflare' }, 
@@ -40,7 +42,7 @@ export function Technologies() {
       ]
     },
     {
-      category: 'AI',
+      category: t('ai'),
       items: [
         { name: 'OpenAI', icon: 'openai' }, 
         { name: 'Anthropic', icon: 'anthropic' }, 
@@ -61,7 +63,7 @@ export function Technologies() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <SectionHeading title="Built Using Modern Technologies" align="center" />
+          <SectionHeading title={t('title')} align="center" />
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mt-16">

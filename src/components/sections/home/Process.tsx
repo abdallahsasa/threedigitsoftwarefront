@@ -7,8 +7,10 @@ import {
   Lightbulb, Palette, Layout, Search, 
   Share2, Target, Cpu, TrendingUp 
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function Process() {
+  const t = useTranslations('Process');
   const containerRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -19,14 +21,14 @@ export function Process() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   const steps = [
-    { title: 'Business Strategy', desc: 'Defining your goals, target audience, and digital roadmap.', icon: <Lightbulb /> },
-    { title: 'Brand Identity', desc: 'Crafting a premium visual narrative that builds trust.', icon: <Palette /> },
-    { title: 'Website or Platform', desc: 'Engineering scalable, high-performance digital products.', icon: <Layout /> },
-    { title: 'SEO', desc: 'Optimizing architecture for search engine dominance.', icon: <Search /> },
-    { title: 'Social Media', desc: 'Engaging your audience with compelling creative content.', icon: <Share2 /> },
-    { title: 'Advertising', desc: 'Driving measurable ROI through targeted paid campaigns.', icon: <Target /> },
-    { title: 'AI Automation', desc: 'Streamlining operations to reduce costs and increase scale.', icon: <Cpu /> },
-    { title: 'Business Growth', desc: 'Analyzing data to continuously optimize and expand your market.', icon: <TrendingUp /> },
+    { title: t('s1_title'), desc: t('s1_desc'), icon: <Lightbulb /> },
+    { title: t('s2_title'), desc: t('s2_desc'), icon: <Palette /> },
+    { title: t('s3_title'), desc: t('s3_desc'), icon: <Layout /> },
+    { title: t('s4_title'), desc: t('s4_desc'), icon: <Search /> },
+    { title: t('s5_title'), desc: t('s5_desc'), icon: <Share2 /> },
+    { title: t('s6_title'), desc: t('s6_desc'), icon: <Target /> },
+    { title: t('s7_title'), desc: t('s7_desc'), icon: <Cpu /> },
+    { title: t('s8_title'), desc: t('s8_desc'), icon: <TrendingUp /> },
   ];
 
   return (
@@ -40,8 +42,8 @@ export function Process() {
           className="mb-20"
         >
           <SectionHeading 
-            title="From Idea to Business Growth" 
-            subtitle="We don't just launch your platform and leave. We guide you through the entire digital lifecycle to ensure sustained revenue growth."
+            title={t('title')} 
+            subtitle={t('subtitle')}
             align="center" 
           />
         </motion.div>
@@ -74,7 +76,7 @@ export function Process() {
                 {/* Content */}
                 <div className={`w-full md:w-1/2 pl-32 md:pl-0 ${i % 2 === 0 ? 'md:pr-16 text-left md:text-right' : 'md:pl-16 text-left'}`}>
                   <div className="bg-primary-bg rounded-2xl p-6 border border-white/5 hover:border-primary-accent/30 transition-all duration-300 shadow-sm hover:shadow-[0_10px_40px_rgba(100,210,30,0.1)] group">
-                    <div className="text-sm font-mono text-primary-accent mb-2 tracking-widest uppercase opacity-80 group-hover:opacity-100 transition-opacity">Step 0{i + 1}</div>
+                    <div className="text-sm font-mono text-primary-accent mb-2 tracking-widest uppercase opacity-80 group-hover:opacity-100 transition-opacity">{t('step')} 0{i + 1}</div>
                     <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
                     <p className="text-muted-text text-sm md:text-base">{step.desc}</p>
                   </div>

@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import { Button } from './Button';
+import { useTranslations } from 'next-intl';
 
 
 export function ContactForm() {
+  const t = useTranslations('ContactForm');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -36,29 +38,29 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 text-sm">
-      {status === 'success' && <div className="p-4 bg-success/20 text-success rounded-lg mb-4">Message sent successfully!</div>}
-      {status === 'error' && <div className="p-4 bg-red-500/20 text-red-500 rounded-lg mb-4">An error occurred. Please try again.</div>}
+      {status === 'success' && <div className="p-4 bg-success/20 text-success rounded-lg mb-4">{t('message_sent_success')}</div>}
+      {status === 'error' && <div className="p-4 bg-red-500/20 text-red-500 rounded-lg mb-4">{t('error_occurred')}</div>}
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <label className="text-muted-text">Full Name</label>
-          <input name="name" required type="text" className="w-full bg-card-bg border border-border-color rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-accent transition-colors" placeholder="John Doe" />
+          <label className="text-muted-text">{t('full_name')}</label>
+          <input name="name" required type="text" className="w-full bg-card-bg border border-border-color rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-accent transition-colors" placeholder={t('name_placeholder')} />
         </div>
         <div className="space-y-2">
-          <label className="text-muted-text">Email</label>
-          <input name="email" required type="email" className="w-full bg-card-bg border border-border-color rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-accent transition-colors" placeholder="john@example.com" />
+          <label className="text-muted-text">{t('email')}</label>
+          <input name="email" required type="email" className="w-full bg-card-bg border border-border-color rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-accent transition-colors" placeholder={t('email_placeholder')} />
         </div>
       </div>
       <div className="space-y-2">
-        <label className="text-muted-text">Subject</label>
-        <input name="subject" type="text" className="w-full bg-card-bg border border-border-color rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-accent transition-colors" placeholder="How can we help?" />
+        <label className="text-muted-text">{t('subject')}</label>
+        <input name="subject" type="text" className="w-full bg-card-bg border border-border-color rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-accent transition-colors" placeholder={t('subject_placeholder')} />
       </div>
       <div className="space-y-2">
-        <label className="text-muted-text">Message</label>
-        <textarea name="message" required rows={5} className="w-full bg-card-bg border border-border-color rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-accent transition-colors" placeholder="Tell us about your requirements..."></textarea>
+        <label className="text-muted-text">{t('message')}</label>
+        <textarea name="message" required rows={5} className="w-full bg-card-bg border border-border-color rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-accent transition-colors" placeholder={t('message_placeholder')}></textarea>
       </div>
       <Button type="submit" disabled={status === 'loading'} className="w-full mt-4">
-        {status === 'loading' ? 'Sending...' : 'Send Message'}
+        {status === 'loading' ? t('sending') : t('send_message')}
       </Button>
     </form>
   );

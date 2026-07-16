@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 export function ClientLogos() {
+  const t = useTranslations('ClientLogos');
   const clients = [
     'MEC Germany',
     'HerAntalya',
@@ -17,7 +19,7 @@ export function ClientLogos() {
   return (
     <section className="py-20 border-t border-white/5 bg-primary-bg overflow-hidden relative">
       <div className="container mx-auto px-4">
-        <p className="text-center text-sm font-semibold tracking-widest uppercase text-muted-text mb-12">Trusted by Innovative Companies</p>
+        <p className="text-center text-sm font-semibold tracking-widest uppercase text-muted-text mb-12">{t('trusted_by')}</p>
         
         <div className="relative w-full">
           {/* Gradient Edges for Marquee Effect */}

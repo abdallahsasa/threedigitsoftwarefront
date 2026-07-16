@@ -10,6 +10,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 export function Header() {
+  const t = useTranslations('Header');
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -35,11 +36,11 @@ export function Header() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { href: '/services', label: 'Services' },
-    { href: '/work', label: 'Work' },
-    { href: '/about', label: 'About' },
-    { href: '/process', label: 'Process' },
-    { href: '/insights', label: 'Insights' },
+    { href: '/services', label: t('nav_services') },
+    { href: '/work', label: t('nav_work') },
+    { href: '/about', label: t('nav_about') },
+    { href: '/process', label: t('nav_process') },
+    { href: '/insights', label: t('nav_insights') },
   ];
   
   return (
@@ -66,7 +67,7 @@ export function Header() {
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-6">
             <Button asChild size="md">
-              <Link href="/start-a-project">Start a Project</Link>
+              <Link href="/start-a-project">{t('start_project')}</Link>
             </Button>
           </div>
 
@@ -120,7 +121,7 @@ export function Header() {
               className="mt-auto"
             >
               <Button asChild size="lg" className="w-full text-center block" onClick={() => setMobileMenuOpen(false)}>
-                <Link href="/start-a-project">Start a Project</Link>
+                <Link href="/start-a-project">{t('start_project')}</Link>
               </Button>
             </motion.div>
           </motion.div>

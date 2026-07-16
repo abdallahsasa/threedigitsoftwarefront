@@ -3,13 +3,15 @@
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function WhyUs() {
+  const t = useTranslations('WhyUs');
   const points = [
-    { title: 'One Partner For Everything', desc: 'Stop juggling multiple agencies. We handle your branding, software, and marketing seamlessly.' },
-    { title: 'Business-Focused Strategy', desc: 'We don\'t just write code; we execute strategies designed to increase your revenue and market share.' },
-    { title: 'Scalable Systems', desc: 'Infrastructure and platforms built to handle growth without needing constant rewrites.' },
-    { title: 'Measurable Results', desc: 'Data-driven marketing and performance tracking so you always know your exact ROI.' },
+    { title: t('p1_title'), desc: t('p1_desc') },
+    { title: t('p2_title'), desc: t('p2_desc') },
+    { title: t('p3_title'), desc: t('p3_desc') },
+    { title: t('p4_title'), desc: t('p4_desc') },
   ];
 
   return (
@@ -27,8 +29,8 @@ export function WhyUs() {
             className="w-full lg:w-1/2"
           >
             <SectionHeading 
-              title="Why Industry Leaders Partner With Us" 
-              subtitle="We partner with ambitious companies to build mission-critical digital products and execute marketing strategies that require serious execution and deliver real business impact."
+              title={t('title')} 
+              subtitle={t('subtitle')}
             />
             
             <div className="space-y-8 mt-12">
